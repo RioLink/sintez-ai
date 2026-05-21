@@ -266,6 +266,140 @@
       .language-switcher button:hover {
         background: #f6f7ff;
       }
+
+      .login-error {
+        display: none;
+
+        background: #fff;
+
+        border-left: 4px solid #d63638;
+
+        padding: 12px;
+
+        margin-bottom: 20px;
+
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        color: #1d2327;
+
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+      }
+
+      .login-error.show {
+        display: block;
+      }
+
+      /* =====================================================
+   RESET PASSWORD MODAL
+===================================================== */
+
+      .reset-modal {
+        position: fixed;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.42);
+
+        backdrop-filter: blur(4px);
+
+        display: none;
+
+        align-items: center;
+        justify-content: center;
+
+        z-index: 99999;
+      }
+
+      .reset-modal.show {
+        display: flex;
+      }
+
+      .reset-modal-box {
+        width: 100%;
+        max-width: 420px;
+
+        background: #fff;
+
+        padding: 32px;
+
+        position: relative;
+
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+      }
+
+      .reset-modal-box h2 {
+        margin: 0 0 18px;
+
+        font-size: 28px;
+
+        color: #1d2327;
+      }
+
+      .reset-modal-box p {
+        margin: 0 0 22px;
+
+        line-height: 1.7;
+
+        color: #50575e;
+
+        font-size: 14px;
+      }
+
+      .reset-modal-box label {
+        display: block;
+
+        margin-bottom: 10px;
+
+        font-size: 14px;
+
+        color: #50575e;
+      }
+
+      .reset-modal-box .input {
+        margin-bottom: 22px;
+      }
+
+      .reset-btn {
+        width: 100%;
+      }
+
+      .reset-close {
+        position: absolute;
+
+        top: 10px;
+        right: 14px;
+
+        border: none;
+        background: transparent;
+
+        font-size: 28px;
+
+        cursor: pointer;
+
+        color: #50575e;
+      }
+
+      .reset-success {
+        display: none;
+
+        margin-top: 20px;
+
+        background: #edfaef;
+
+        border-left: 4px solid #00a32a;
+
+        padding: 14px;
+
+        font-size: 14px;
+
+        color: #1d2327;
+      }
+
+      .reset-success.show {
+        display: block;
+      }
     </style>
   </head>
 
@@ -274,8 +408,11 @@
       <h1>
         <a href="/"> WordPress </a>
       </h1>
-
-      <form>
+      <div class="login-error" id="loginError">
+        <strong>Error:</strong>
+        The password you entered for the username is incorrect.
+      </div>
+      <form id="loginForm">
         <label> Username or Email Address </label>
 
         <div class="input-wrap">
@@ -305,7 +442,7 @@
 
       <div class="nav">
         <p>
-          <a href="#"> Lost your password? </a>
+          <a href="#" id="openResetModal"> Lost your password? </a>
         </p>
 
         <p>
@@ -326,6 +463,35 @@
       </div>
     </div>
 
+    <!-- RESET PASSWORD MODAL -->
+
+    <div class="reset-modal" id="resetModal">
+      <div class="reset-modal-box">
+        <button class="reset-close" id="closeResetModal">×</button>
+
+        <h2>Lost Password</h2>
+
+        <p>
+          Please enter your username or email address. You will receive an email
+          message with instructions on how to reset your password.
+        </p>
+
+        <form id="resetForm">
+          <label> Username or Email Address </label>
+
+          <input type="text" class="input" />
+
+          <button type="submit" class="button-primary reset-btn">
+            Get New Password
+          </button>
+        </form>
+
+        <div class="reset-success" id="resetSuccess">
+          Password reset email has been sent.
+        </div>
+      </div>
+    </div>
+
     <script>
       const toggle = document.getElementById("togglePassword");
 
@@ -338,6 +504,56 @@
           password.type = "password";
         }
       });
+
+      const loginForm = document.getElementById("loginForm");
+
+      const loginError = document.getElementById("loginError");
+
+      if (loginForm && loginError) {
+        loginForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          setTimeout(() => {
+            loginError.classList.add("show");
+          }, 500);
+        });
+      }
+
+      const openResetModal = document.getElementById("openResetModal");
+
+      const closeResetModal = document.getElementById("closeResetModal");
+
+      const resetModal = document.getElementById("resetModal");
+
+      const resetForm = document.getElementById("resetForm");
+
+      const resetSuccess = document.getElementById("resetSuccess");
+
+      if (openResetModal && closeResetModal && resetModal) {
+        openResetModal.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          resetModal.classList.add("show");
+        });
+
+        closeResetModal.addEventListener("click", () => {
+          resetModal.classList.remove("show");
+        });
+
+        resetModal.addEventListener("click", (e) => {
+          if (e.target === resetModal) {
+            resetModal.classList.remove("show");
+          }
+        });
+      }
+
+      if (resetForm && resetSuccess) {
+        resetForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          resetSuccess.classList.add("show");
+        });
+      }
     </script>
   </body>
 </html>
