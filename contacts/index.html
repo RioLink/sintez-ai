@@ -1,0 +1,838 @@
+<!-- contacts.html -->
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="WordPress 6.8.2" />
+
+    <title>Контакти — Sintez AI</title>
+
+    <meta
+      name="description"
+      content="Контакти та співпраця з Sintez AI — AI-driven digital agency."
+    />
+
+    <link
+      rel="stylesheet"
+      href="/wp-content/themes/sintez-ai/assets/css/style.css"
+    />
+
+    <style>
+      /* =========================================================
+       SINTEZ CONTACT PAGE
+    ========================================================= */
+
+      .sintez-contact-page {
+        background: #050505;
+        color: #fff;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .sintez-contact-page * {
+        box-sizing: border-box;
+      }
+
+      .sintez-contact-page a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .sintez-contact-page .s-contact-section {
+        position: relative;
+        padding: 120px 0;
+        overflow: hidden;
+      }
+
+      .sintez-contact-page .s-contact-section::before {
+        content: "";
+        position: absolute;
+        width: 900px;
+        height: 900px;
+        right: -300px;
+        top: -300px;
+
+        background: radial-gradient(
+          circle,
+          rgba(255, 30, 30, 0.18),
+          transparent 70%
+        );
+
+        pointer-events: none;
+      }
+
+      .sintez-contact-page .s-contact-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 42px;
+        align-items: stretch;
+      }
+
+      .sintez-contact-page .s-contact-left,
+      .sintez-contact-page .s-contact-right {
+        position: relative;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.01)
+        );
+
+        backdrop-filter: blur(18px);
+
+        overflow: hidden;
+      }
+
+      .sintez-contact-page .s-contact-left {
+        padding: 70px 60px;
+        min-height: 880px;
+      }
+
+      .sintez-contact-page .s-contact-right {
+        padding: 50px;
+        min-height: 880px;
+      }
+
+      .sintez-contact-page .s-contact-left::before,
+      .sintez-contact-page .s-contact-right::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 160px;
+        height: 5px;
+        background: #ff1f1f;
+      }
+
+      .sintez-contact-page .s-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+
+        color: #ff2a2a;
+
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+
+        margin-bottom: 34px;
+      }
+
+      .sintez-contact-page .s-eyebrow::before {
+        content: "";
+        width: 42px;
+        height: 1px;
+        background: #ff2a2a;
+      }
+
+      .sintez-contact-page .s-title {
+        font-size: clamp(48px, 7vw, 96px);
+        line-height: 0.92;
+        letter-spacing: -0.07em;
+        font-weight: 950;
+
+        margin: 0 0 34px;
+      }
+
+      .sintez-contact-page .s-description {
+        font-size: 21px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.74);
+
+        max-width: 520px;
+
+        margin-bottom: 60px;
+      }
+
+      .sintez-contact-page .s-contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+      }
+
+      .sintez-contact-page .s-contact-item span {
+        display: block;
+
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+
+        color: rgba(255, 255, 255, 0.42);
+
+        margin-bottom: 12px;
+      }
+
+      .sintez-contact-page .s-contact-item a,
+      .sintez-contact-page .s-contact-item p {
+        margin: 0;
+
+        font-size: 30px;
+        line-height: 1.45;
+        font-weight: 800;
+        color: #fff;
+      }
+
+      .sintez-contact-page .s-socials {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+
+        margin-top: 70px;
+      }
+
+      .sintez-contact-page .s-socials a {
+        width: 66px;
+        height: 66px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        background: rgba(255, 255, 255, 0.02);
+
+        transition: 0.28s;
+
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .sintez-contact-page .s-socials a:hover {
+        background: #ff1f1f;
+        border-color: #ff1f1f;
+        transform: translateY(-4px);
+      }
+
+      /* TABS */
+
+      .sintez-contact-page .s-tabs {
+        display: flex;
+        margin-bottom: 50px;
+      }
+
+      .sintez-contact-page .s-tab-btn {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        background: transparent;
+
+        color: rgba(255, 255, 255, 0.6);
+
+        height: 72px;
+        padding: 0 46px;
+
+        font-size: 15px;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+
+        cursor: pointer;
+
+        transition: 0.25s;
+      }
+
+      .sintez-contact-page .s-tab-btn.active {
+        background: #ff1f1f;
+        border-color: #ff1f1f;
+        color: #fff;
+      }
+
+      .sintez-contact-page .s-tab-content {
+        display: none;
+        animation: sintezFade 0.35s ease;
+      }
+
+      .sintez-contact-page .s-tab-content.active {
+        display: block;
+      }
+
+      @keyframes sintezFade {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .sintez-contact-page .s-form-title {
+        font-size: 64px;
+        line-height: 1;
+        letter-spacing: -0.06em;
+        font-weight: 900;
+
+        margin: 0 0 20px;
+      }
+
+      .sintez-contact-page .s-form-description {
+        max-width: 600px;
+
+        font-size: 18px;
+        line-height: 1.8;
+
+        color: rgba(255, 255, 255, 0.68);
+
+        margin-bottom: 46px;
+      }
+
+      .sintez-contact-page .s-form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .sintez-contact-page .s-field {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .sintez-contact-page .s-field.full {
+        grid-column: 1 / -1;
+      }
+
+      .sintez-contact-page .s-field label {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      .sintez-contact-page .s-field input,
+      .sintez-contact-page .s-field textarea {
+        width: 100%;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        background: rgba(255, 255, 255, 0.02);
+
+        color: #fff;
+
+        padding: 20px;
+
+        font-size: 16px;
+
+        outline: none;
+
+        transition: 0.25s;
+      }
+
+      .sintez-contact-page .s-field input:focus,
+      .sintez-contact-page .s-field textarea:focus {
+        border-color: #ff2a2a;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .sintez-contact-page .s-field textarea {
+        min-height: 220px;
+        resize: vertical;
+      }
+
+      .sintez-contact-page .s-error {
+        border-color: #ff2a2a !important;
+      }
+
+      .sintez-contact-page .s-submit {
+        border: none;
+
+        height: 72px;
+        padding: 0 48px;
+
+        background: #ff1f1f;
+
+        color: #fff;
+
+        font-size: 15px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        cursor: pointer;
+
+        transition: 0.28s;
+
+        margin-top: 30px;
+      }
+
+      .sintez-contact-page .s-submit:hover {
+        transform: translateY(-4px);
+        background: #ff3434;
+      }
+
+      .sintez-contact-page .s-success {
+        margin-top: 22px;
+        color: #5dff89;
+        display: none;
+      }
+
+      .sintez-contact-page .s-success.show {
+        display: block;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 980px) {
+        .sintez-contact-page .s-contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sintez-contact-page .s-contact-left,
+        .sintez-contact-page .s-contact-right {
+          min-height: auto;
+        }
+
+        .sintez-contact-page .s-contact-left {
+          padding: 44px 28px;
+        }
+
+        .sintez-contact-page .s-contact-right {
+          padding: 40px 24px;
+        }
+
+        .sintez-contact-page .s-form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sintez-contact-page .s-title {
+          font-size: 56px;
+        }
+
+        .sintez-contact-page .s-form-title {
+          font-size: 42px;
+        }
+
+        .sintez-contact-page .s-contact-item a,
+        .sintez-contact-page .s-contact-item p {
+          font-size: 22px;
+        }
+
+        .sintez-contact-page .s-tabs {
+          flex-wrap: wrap;
+        }
+
+        .sintez-contact-page .s-tab-btn {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a href="/"
+        ><img
+          class="logo"
+          src="/wp-content/themes/sintez-ai/assets/img/logo.svg"
+          alt="Sintez AI" /></a
+      ><button class="burger">☰</button>
+      <nav class="menu">
+        <a data-i18n="nav_about" href="/about/">про нас</a
+        ><a data-i18n="nav_cases" href="/cases/">кейси</a
+        ><a data-i18n="nav_career" href="/career/">вакансії</a
+        ><a data-i18n="nav_contacts" href="/contacts/">контакти</a>
+      </nav>
+      <div class="lang">
+        <button data-lang="ua" class="active">UA</button
+        ><button data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+  <body>
+    <div class="sintez-contact-page">
+      <main class="s-contact-section">
+        <div class="wrap">
+          <div class="s-contact-grid">
+            <!-- LEFT -->
+
+            <div class="s-contact-left">
+              <div class="s-eyebrow">SINTEZ AI</div>
+
+              <h1 class="s-title" data-i18n="heroTitle">
+                Давайте<br />
+                створимо<br />
+                щось сильне
+              </h1>
+
+              <p class="s-description" data-i18n="heroDescription">
+                AI-driven digital agency для брендів, які хочуть масштабуватись
+                швидше, отримувати більше клієнтів та будувати сильний digital
+                presence.
+              </p>
+
+              <div class="s-contact-list">
+                <div class="s-contact-item">
+                  <span data-i18n="phoneLabel"> Телефон </span>
+
+                  <a href="tel:+380994189426"> +380 99 418 9426 </a>
+                </div>
+
+                <div class="s-contact-item">
+                  <span>Email</span>
+
+                  <a href="mailto:hello@sintez-ai.com"> hello@sintez-ai.com </a>
+                </div>
+
+                <div class="s-contact-item">
+                  <span data-i18n="addressLabel"> Адреса </span>
+
+                  <p data-i18n="address">
+                    03150, Україна,<br />
+                    місто Київ,<br />
+                    вулиця Ділова, будинок 5
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="s-contact-right">
+              <!-- TABS -->
+
+              <div class="s-tabs">
+                <button
+                  class="s-tab-btn active"
+                  data-tab="contacts"
+                  data-i18n="contactsTab"
+                >
+                  Контакти
+                </button>
+
+                <button
+                  class="s-tab-btn"
+                  data-tab="cooperation"
+                  data-i18n="cooperationTab"
+                >
+                  Співпраця
+                </button>
+              </div>
+
+              <!-- CONTACTS -->
+
+              <div class="s-tab-content active" id="contacts">
+                <h2 class="s-form-title" data-i18n="contactTitle">
+                  Звʼязатися
+                </h2>
+
+                <p class="s-form-description" data-i18n="contactDescription">
+                  Напишіть нам — відповімо максимально швидко та обговоримо ваш
+                  проект.
+                </p>
+
+                <form class="s-form">
+                  <div class="s-form-grid">
+                    <div class="s-field">
+                      <label data-i18n="nameLabel"> Ім’я </label>
+
+                      <input type="text" required placeholder="Ваше ім’я" />
+                    </div>
+
+                    <div class="s-field">
+                      <label>Email</label>
+
+                      <input
+                        type="email"
+                        required
+                        placeholder="your@email.com"
+                      />
+                    </div>
+
+                    <div class="s-field full">
+                      <label data-i18n="messageLabel"> Повідомлення </label>
+
+                      <textarea
+                        required
+                        placeholder="Розкажіть про ваш проект..."
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="s-submit" data-i18n="sendBtn">
+                    Надіслати
+                  </button>
+
+                  <div class="s-success">Форма успішно відправлена!</div>
+                </form>
+              </div>
+
+              <!-- COOPERATION -->
+
+              <div class="s-tab-content" id="cooperation">
+                <h2 class="s-form-title" data-i18n="cooperationTitle">
+                  Співпраця
+                </h2>
+
+                <p
+                  class="s-form-description"
+                  data-i18n="cooperationDescription"
+                >
+                  Хочете партнерство, white-label співпрацю або запуск рекламних
+                  кампаній?
+                </p>
+
+                <form class="s-form">
+                  <div class="s-form-grid">
+                    <div class="s-field">
+                      <label data-i18n="companyLabel"> Компанія </label>
+
+                      <input
+                        type="text"
+                        required
+                        placeholder="Назва компанії"
+                      />
+                    </div>
+
+                    <div class="s-field">
+                      <label data-i18n="phoneLabel"> Телефон </label>
+
+                      <input type="tel" required placeholder="+380..." />
+                    </div>
+
+                    <div class="s-field full">
+                      <label data-i18n="detailsLabel"> Деталі співпраці </label>
+
+                      <textarea
+                        required
+                        placeholder="Опишіть ваш запит..."
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="s-submit" data-i18n="discussBtn">
+                    Обговорити
+                  </button>
+
+                  <div class="s-success">Форма успішно відправлена!</div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer-left">
+          <div class="footer-logo">SINTEZ AI</div>
+          <p class="footer-copy">
+            © 2026 Sintez Agency. AI-powered digital marketing solutions.
+          </p>
+        </div>
+
+        <div class="footer-right">
+          <a href="https://facebook.com/" target="_blank" class="social-link">
+            <img
+              src="/wp-content/themes/sintez-ai/assets/img/icons/facebook.png"
+              alt="Facebook"
+            />
+          </a>
+
+          <a href="https://instagram.com/" target="_blank" class="social-link">
+            <img
+              src="/wp-content/themes/sintez-ai/assets/img/icons/instagram.png"
+              alt="Instagram"
+            />
+          </a>
+
+          <a href="https://linkedin.com/" target="_blank" class="social-link">
+            <img
+              src="/wp-content/themes/sintez-ai/assets/img/icons/linkedin.png"
+              alt="LinkedIn"
+            />
+          </a>
+
+          <a href="https://youtube.com/" target="_blank" class="social-link">
+            <img
+              src="/wp-content/themes/sintez-ai/assets/img/icons/youtube.png"
+              alt="YouTube"
+            />
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      /* =====================================================
+     TABS
+  ===================================================== */
+
+      const sintezTabs = document.querySelectorAll(".s-tab-btn");
+
+      const sintezContents = document.querySelectorAll(".s-tab-content");
+
+      sintezTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          sintezTabs.forEach((btn) => btn.classList.remove("active"));
+
+          sintezContents.forEach((content) =>
+            content.classList.remove("active"),
+          );
+
+          tab.classList.add("active");
+
+          document.getElementById(tab.dataset.tab).classList.add("active");
+        });
+      });
+
+      /* =====================================================
+     VALIDATION
+  ===================================================== */
+
+      const forms = document.querySelectorAll(".s-form");
+
+      forms.forEach((form) => {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const fields = form.querySelectorAll("input, textarea");
+
+          let valid = true;
+
+          fields.forEach((field) => {
+            field.classList.remove("s-error");
+
+            if (!field.value.trim()) {
+              field.classList.add("s-error");
+
+              valid = false;
+            }
+
+            if (field.type === "email" && field.value.trim()) {
+              const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+              if (!regex.test(field.value)) {
+                field.classList.add("s-error");
+
+                valid = false;
+              }
+            }
+          });
+
+          if (!valid) {
+            return;
+          }
+
+          form.reset();
+
+          const success = form.querySelector(".s-success");
+
+          success.classList.add("show");
+
+          setTimeout(() => {
+            success.classList.remove("show");
+          }, 3000);
+        });
+      });
+
+      /* =====================================================
+     LANG
+  ===================================================== */
+
+      const translations = {
+        ua: {
+          heroTitle: "Давайте<br>створимо<br>щось сильне",
+
+          heroDescription:
+            "AI-driven digital agency для брендів, які хочуть масштабуватись швидше, отримувати більше клієнтів та будувати сильний digital presence.",
+
+          phoneLabel: "Телефон",
+
+          addressLabel: "Адреса",
+
+          address: "03150, Україна,<br>місто Київ,<br>вулиця Ділова, будинок 5",
+
+          contactsTab: "Контакти",
+
+          cooperationTab: "Співпраця",
+
+          contactTitle: "Звʼязатися",
+
+          contactDescription:
+            "Напишіть нам — відповімо максимально швидко та обговоримо ваш проект.",
+
+          cooperationTitle: "Співпраця",
+
+          cooperationDescription:
+            "Хочете партнерство, white-label співпрацю або запуск рекламних кампаній?",
+
+          nameLabel: "Ім’я",
+
+          messageLabel: "Повідомлення",
+
+          sendBtn: "Надіслати",
+
+          companyLabel: "Компанія",
+
+          detailsLabel: "Деталі співпраці",
+
+          discussBtn: "Обговорити",
+        },
+
+        en: {
+          heroTitle: "Let's<br>create<br>something strong",
+
+          heroDescription:
+            "AI-driven digital agency helping brands scale faster and build a strong digital presence.",
+
+          phoneLabel: "Phone",
+
+          addressLabel: "Address",
+
+          address: "03150, Ukraine,<br>Kyiv,<br>Dilova Street, 5",
+
+          contactsTab: "Contacts",
+
+          cooperationTab: "Cooperation",
+
+          contactTitle: "Get in touch",
+
+          contactDescription: "Write to us and let's discuss your project.",
+
+          cooperationTitle: "Partnership",
+
+          cooperationDescription:
+            "Interested in partnership or launching campaigns?",
+
+          nameLabel: "Name",
+
+          messageLabel: "Message",
+
+          sendBtn: "Send",
+
+          companyLabel: "Company",
+
+          detailsLabel: "Cooperation details",
+
+          discussBtn: "Discuss",
+        },
+      };
+
+      const langButtons = document.querySelectorAll(".lang button");
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          langButtons.forEach((btn) => btn.classList.remove("active"));
+
+          button.classList.add("active");
+
+          const lang = button.dataset.lang;
+
+          document.querySelectorAll("[data-i18n]").forEach((element) => {
+            const key = element.dataset.i18n;
+
+            if (translations[lang][key]) {
+              element.innerHTML = translations[lang][key];
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
