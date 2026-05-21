@@ -1,32 +1,343 @@
 <!doctype html>
-<html lang="uk">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta name="generator" content="WordPress 6.8.2" />
+
     <title>Log In ‹ Sintez AI — WordPress</title>
-    <meta
-      name="description"
-      content="AI-driven digital agency для performance marketing, SMM та AI-аналітики рекламних кампаній."
-    />
-    <link rel="canonical" href="https://sintez-ai.com/" />
+
+    <!-- WordPress-like paths -->
+
+    <link rel="stylesheet" href="/wp-admin/css/login.min.css" />
+
+    <link rel="stylesheet" href="/wp-includes/css/dashicons.min.css" />
     <link
-      rel="stylesheet"
-      href="/wp-content/themes/sintez-ai/assets/css/style.css"
+      rel="icon"
+      type="image/png"
+      href="/wp-content/themes/sintez-ai/assets/img/wp.png"
     />
-    <script defer src="/wp-includes/js/wp-polyfill.min.js"></script>
-    <script defer src="/wp-content/themes/sintez-ai/assets/js/main.js"></script>
+    <link
+      rel="apple-touch-icon"
+      href="/wp-content/themes/sintez-ai/assets/img/wp.png"
+    />
+
+    <script defer src="/wp-includes/js/jquery/jquery.min.js"></script>
+
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+
+        background: #f0f0f1;
+
+        min-height: 100vh;
+
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+          Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+        color: #1d2327;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .login {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .login h1 {
+        margin: 0 0 24px;
+
+        text-align: center;
+      }
+
+      .login h1 a {
+        display: block;
+
+        width: 84px;
+        height: 84px;
+
+        margin: 0 auto;
+
+        background: url("/wp-content/themes/sintez-ai/assets/img/wp.png")
+          center/contain no-repeat;
+
+        text-indent: -9999px;
+
+        overflow: hidden;
+      }
+
+      .login form {
+        margin: 0;
+
+        padding: 26px 24px 34px;
+
+        background: #fff;
+
+        border: 1px solid #c3c4c7;
+
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+
+      .login label {
+        display: block;
+
+        font-size: 14px;
+
+        margin-bottom: 8px;
+
+        color: #50575e;
+      }
+
+      .input-wrap {
+        position: relative;
+        margin-bottom: 18px;
+      }
+
+      .input {
+        width: 100%;
+
+        height: 40px;
+
+        border: 1px solid #8c8f94;
+
+        background: #fff;
+
+        padding: 0 12px;
+
+        font-size: 16px;
+
+        color: #2c3338;
+
+        outline: none;
+
+        box-sizing: border-box;
+      }
+
+      .input:focus {
+        border-color: #2271b1;
+
+        box-shadow: 0 0 0 1px #2271b1;
+      }
+
+      .password-wrap {
+        position: relative;
+      }
+
+      .toggle-password {
+        position: absolute;
+
+        right: 12px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        border: none;
+        background: transparent;
+
+        color: #3858e9;
+
+        cursor: pointer;
+
+        font-size: 20px;
+      }
+
+      .login-row {
+        margin-top: 22px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .remember {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        font-size: 14px;
+
+        color: #50575e;
+      }
+
+      .remember input {
+        width: 16px;
+        height: 16px;
+      }
+
+      .button-primary {
+        height: 44px;
+
+        padding: 0 22px;
+
+        border: 1px solid #3858e9;
+
+        background: #3858e9;
+
+        color: #fff;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      .button-primary:hover {
+        background: #2145e6;
+      }
+
+      .nav {
+        margin-top: 22px;
+
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .nav a {
+        color: #50575e;
+
+        text-decoration: none;
+      }
+
+      .nav a:hover {
+        color: #2145e6;
+      }
+
+      .language-switcher {
+        margin-top: 26px;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .language-switcher .dashicons {
+        font-size: 20px;
+        color: #50575e;
+      }
+
+      .language-switcher select {
+        flex: 1;
+
+        height: 46px;
+
+        border: 1px solid #8c8f94;
+
+        background: #fff;
+
+        padding: 0 14px;
+
+        font-size: 16px;
+
+        outline: none;
+      }
+
+      .language-switcher button {
+        height: 46px;
+
+        padding: 0 18px;
+
+        border: 1px solid #3858e9;
+
+        background: #fff;
+
+        color: #3858e9;
+
+        font-size: 14px;
+        font-weight: 500;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      .language-switcher button:hover {
+        background: #f6f7ff;
+      }
+    </style>
   </head>
+
   <body>
-    <main class="admin-login">
-      <div class="login-card">
-        <img src="/wp-content/themes/sintez-ai/assets/img/logo.svg" />
-        <p class="wp-note">WordPress administration panel</p>
-        <input placeholder="Username or Email Address" /><input
-          placeholder="Password"
-          type="password"
-        /><button>Log In</button>
+    <div class="login">
+      <h1>
+        <a href="/"> WordPress </a>
+      </h1>
+
+      <form>
+        <label> Username or Email Address </label>
+
+        <div class="input-wrap">
+          <input class="input" type="text" />
+        </div>
+
+        <label> Password </label>
+
+        <div class="password-wrap">
+          <input class="input" type="password" id="password" />
+
+          <button type="button" class="toggle-password" id="togglePassword">
+            👁
+          </button>
+        </div>
+
+        <div class="login-row">
+          <label class="remember">
+            <input type="checkbox" />
+
+            Remember Me
+          </label>
+
+          <button type="submit" class="button-primary">Log In</button>
+        </div>
+      </form>
+
+      <div class="nav">
+        <p>
+          <a href="#"> Lost your password? </a>
+        </p>
+
+        <p>
+          <a href="/"> ← Go to newsdailyhub.site </a>
+        </p>
       </div>
-    </main>
+
+      <div class="language-switcher">
+        <span class="dashicons dashicons-translation"></span>
+
+        <select>
+          <option>English (UK)</option>
+
+          <option>Українська</option>
+        </select>
+
+        <button>Change</button>
+      </div>
+    </div>
+
+    <script>
+      const toggle = document.getElementById("togglePassword");
+
+      const password = document.getElementById("password");
+
+      toggle.addEventListener("click", () => {
+        if (password.type === "password") {
+          password.type = "text";
+        } else {
+          password.type = "password";
+        }
+      });
+    </script>
   </body>
 </html>
