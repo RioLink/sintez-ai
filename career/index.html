@@ -35,15 +35,33 @@
         <button class="burger">☰</button>
 
         <nav class="menu">
-          <a href="/about/">про нас</a>
-          <a href="/cases/">кейси</a>
-          <a href="/career/" class="active">вакансії</a>
-          <a href="/contacts/">контакти</a>
+        <a href="/about/" data-i18n="about">про нас</a>
+
+        <a href="/cases/" data-i18n="cases">
+          кейси
+        </a>
+
+        <a
+          href="/career/"
+          class="active"
+          data-i18n="career"
+        >
+          вакансії
+        </a>
+
+        <a href="/contacts/" data-i18n="contacts">
+          контакти
+        </a>
         </nav>
 
         <div class="lang">
-          <button class="active">UA</button>
-          <button>EN</button>
+        <button data-lang="ua" class="active">
+          UA
+        </button>
+
+        <button data-lang="en">
+          EN
+        </button>
         </div>
       </div>
     </header>
@@ -52,17 +70,17 @@
       <section class="hero wrap">
   <div>
 
-    <div class="kicker">
-      SINTEZ AI CAREERS
-    </div>
+<div class="kicker" data-i18n="career_kicker">
+  SINTEZ AI CAREERS
+</div>
 
-    <h1>
+    <h1 data-i18n="hero_title">
       Робота в<br />
       <span>SINTEZ AI</span><br />
       для тих, хто створює майбутнє
     </h1>
 
-    <p class="lead">
+    <p class="lead" data-i18n="hero_desc">
       Ми шукаємо людей, які люблять AI, digital,
       performance marketing та сильний креатив.
       Приєднуйся до команди, що створює AI-driven
@@ -70,7 +88,9 @@
     </p>
 
     <a class="btn" href="#vacancies">
-      <span>дивитися вакансії</span>
+      <span data-i18n="hero_btn">
+  дивитися вакансії
+</span>
     </a>
 
   </div>
@@ -355,5 +375,69 @@
   </div>
 
 </div>
+
+<script>
+const translations = {
+  ua: {
+    about: "про нас",
+    cases: "кейси",
+    career: "вакансії",
+    contacts: "контакти",
+
+    career_kicker: "SINTEZ AI CAREERS",
+
+    hero_title:
+      "Робота в<br><span>SINTEZ AI</span><br>для тих, хто створює майбутнє",
+
+    hero_desc:
+      "Ми шукаємо людей, які люблять AI, digital, performance marketing та сильний креатив. Приєднуйся до команди, що створює AI-driven marketing systems для брендів нового покоління.",
+
+    hero_btn: "дивитися вакансії"
+  },
+
+  en: {
+    about: "about",
+    cases: "cases",
+    career: "careers",
+    contacts: "contacts",
+
+    career_kicker: "SINTEZ AI CAREERS",
+
+    hero_title:
+      "Work at<br><span>SINTEZ AI</span><br>for those building the future",
+
+    hero_desc:
+      "We are looking for people passionate about AI, digital, performance marketing, and strong creative systems. Join the team building AI-driven marketing systems for next-generation brands.",
+
+    hero_btn: "view vacancies"
+  }
+};
+
+const langButtons = document.querySelectorAll("[data-lang]");
+
+langButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+
+    langButtons.forEach((b) =>
+      b.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    const lang = button.dataset.lang;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+
+      const key = element.dataset.i18n;
+
+      if (translations[lang][key]) {
+        element.innerHTML = translations[lang][key];
+      }
+
+    });
+
+  });
+});
+</script>
   </body>
 </html>

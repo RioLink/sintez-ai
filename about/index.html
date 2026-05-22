@@ -57,24 +57,24 @@
         <div>
           <div class="kicker">ABOUT SINTEZ AI</div>
 
-          <h1>
+          <h1 data-i18n="heroTitle">
             Синтезуємо інтелект<br />
             та креатив для маркетингу,<br />
             <span>який працює</span>
           </h1>
 
-          <p class="lead">
+         <p class="lead" data-i18n="heroLead1">
             Sintez AI — digital-агенція, яка поєднує потужну власну ШІ-модель з
             глибокою експертизою performance-маркетингу та сучасним креативом.
           </p>
 
-          <p class="lead">
+          <p class="lead" data-i18n="heroLead2">
             Ми створюємо AI-рішення, які аналізують ефективність рекламних
             кампаній у реальному часі, оцінюють креативи, прогнозують результати
             та допомагають знаходити найприбутковіші стратегії.
           </p>
 
-          <a class="btn" href="/cases/">
+          <span data-i18n="casesBtn">дивитися кейси</span>
             <span>дивитися кейси</span>
           </a>
         </div>
@@ -340,5 +340,64 @@
         </div>
       </div>
     </div>
+    <script>
+const translations = {
+  ua: {
+    about: "про нас",
+    cases: "кейси",
+    career: "вакансії",
+    contacts: "контакти",
+
+    heroTitle:
+      "Синтезуємо інтелект<br>та креатив для маркетингу,<br><span>який працює</span>",
+
+    heroLead1:
+      "Sintez AI — digital-агенція, яка поєднує потужну власну ШІ-модель з глибокою експертизою performance-маркетингу та сучасним креативом.",
+
+    heroLead2:
+      "Ми створюємо AI-рішення, які аналізують ефективність рекламних кампаній у реальному часі, оцінюють креативи, прогнозують результати та допомагають знаходити найприбутковіші стратегії.",
+
+    casesBtn: "дивитися кейси"
+  },
+
+  en: {
+    about: "about",
+    cases: "cases",
+    career: "career",
+    contacts: "contacts",
+
+    heroTitle:
+      "We combine intelligence<br>and creativity for marketing<br><span>that performs</span>",
+
+    heroLead1:
+      "Sintez AI is a digital agency combining a powerful proprietary AI model with deep expertise in performance marketing and modern creative production.",
+
+    heroLead2:
+      "We build AI solutions that analyze campaign performance in real time, evaluate creatives, predict results, and identify the most profitable strategies.",
+
+    casesBtn: "view cases"
+  }
+};
+
+const langButtons = document.querySelectorAll(".lang button");
+
+langButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    langButtons.forEach((btn) => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    const lang = button.dataset.lang;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.dataset.i18n;
+
+      if (translations[lang][key]) {
+        element.innerHTML = translations[lang][key];
+      }
+    });
+  });
+});
+</script>
   </body>
 </html>

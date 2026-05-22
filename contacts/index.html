@@ -378,6 +378,37 @@
       .sintez-contact-page .s-success.show {
         display: block;
       }
+      .footer {
+        margin-top: 120px;
+        padding: 40px 80px;
+        background: #ffffff;
+        border-top: 1px solid #e8e8e8;
+
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+
+        gap: 40px;
+      }
+      .footer-left {
+        justify-self: start;
+      }
+
+      .footer-center {
+        justify-self: center;
+        text-align: center;
+      }
+
+      .footer-right {
+        justify-self: end;
+      }
+      .footer-center a {
+        white-space: nowrap;
+      }
+      .footer-center a {
+        color: #111;
+        font-weight: 500;
+      }
 
       /* MOBILE */
 
@@ -470,24 +501,33 @@
 
               <div class="s-contact-list">
                 <div class="s-contact-item">
-                  <span data-i18n="phoneLabel"> Телефон </span>
+                  <span data-i18n="fopLabel">ФОП</span>
 
-                  <a href="tel:+380994189426"> +380 99 418 9426 </a>
+                  <p data-i18n="fopValue">Паньків Максим Вадимович</p>
                 </div>
-
+                <div class="s-contact-item">
+                  <span data-i18n="phoneLabel"> Телефон </span>
+                  <a href="tel:+380994189426"> +380 95 043 8280 </a>
+                </div>
                 <div class="s-contact-item">
                   <span>Email</span>
-
                   <a href="mailto:hello@sintez-ai.com"> hello@sintez-ai.com </a>
+                </div>
+                <div class="s-contact-item">
+                  <span data-i18n="addressLabel">Адреса</span>
+
+                  <p data-i18n="addressValue">
+                    29005, Україна,<br />
+                    місто Хмельницький,<br />
+                    вулиця Зарічанська, будинок 44
+                  </p>
                 </div>
 
                 <div class="s-contact-item">
-                  <span data-i18n="addressLabel"> Адреса </span>
+                  <span data-i18n="activityLabel">Вид діяльності</span>
 
-                  <p data-i18n="address">
-                    03150, Україна,<br />
-                    місто Київ,<br />
-                    вулиця Ділова, будинок 5
+                  <p data-i18n="activityValue">
+                    Рекламні агентства (КВЕД 73.11)
                   </p>
                 </div>
               </div>
@@ -810,6 +850,16 @@
           detailsLabel: "Деталі співпраці",
 
           discussBtn: "Обговорити",
+
+          fopLabel: "ФОП",
+          fopValue: "Паньків Максим Вадимович",
+
+          addressLabel: "Адреса",
+          addressValue:
+            "29005, Україна,<br>місто Хмельницький,<br>вулиця Зарічанська, будинок 44",
+
+          activityLabel: "Вид діяльності",
+          activityValue: "Рекламні агентства (КВЕД 73.11)",
         },
 
         en: {
@@ -848,6 +898,16 @@
           detailsLabel: "Cooperation details",
 
           discussBtn: "Discuss",
+
+          fopLabel: "Sole Proprietor",
+          fopValue: "Pankiv Maksym Vadymovych",
+
+          addressLabel: "Address",
+          addressValue:
+            "29005, Ukraine,<br>Khmelnytskyi,<br>Zarichanska Street, 44",
+
+          activityLabel: "Business Activity",
+          activityValue: "Advertising Agencies (NACE 73.11)",
         },
       };
 
